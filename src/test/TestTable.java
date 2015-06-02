@@ -15,6 +15,8 @@ public class TestTable {
 		int length = 0;
 		String token = "";
 		boolean view = false;
+		int row = 0;
+		int column = 0;
 		
 		while (true) {
 			temp = fr.readLine();
@@ -30,12 +32,17 @@ public class TestTable {
 					token = (String) it.next();
 					if (token.equals("CH")) {
 						view = true;
-						table += "<tr>";
+						table += "<tr background-color=\"red\">";
+						table += "<td>Index</td>";
 					}
 					else if (token.equals("SB")) {
 						view = true;
+						row ++;
+						column = 1;
 						table += "</tr>";
-						table += "<tr>";
+						table += "<tr><td>";
+						table += row;
+						table += "</td>";
 					}
 					else if(token.equals("SF")) {
 						table += "</tr>";
@@ -43,9 +50,19 @@ public class TestTable {
 						break;
 					}
 					else if (view) {
-						table += "<td>";
-						table += token;
-						table += "</td>";
+						column++;
+						if (row == 1 && column == 10) {
+							table += "<td bgcolor=\"red\">";
+							table += token;
+							table += "</td>";
+							
+						}
+						else {
+							table += "<td>";
+							table += token;
+							table += "</td>";
+						}
+						
 					}
 				}
 				table += "</tr>";
