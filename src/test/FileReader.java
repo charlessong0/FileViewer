@@ -58,7 +58,7 @@ public class FileReader {
     /** 
      * store a line into array, set the length and fill the empty slot with NULL values
      */
-    public static String[] fromCSVLine(String source, int size) {  
+    public String[] fromCSVLine(String source, int size) {  
         ArrayList<String> tmpArray = fromCSVLinetoArray(source);  
         if (size < tmpArray.size()) {  
             size = tmpArray.size();  
@@ -71,7 +71,7 @@ public class FileReader {
     /** 
      * store a line into array, do not set the length 
      */
-    public static ArrayList<String> fromCSVLinetoArray(String source) {  
+    public ArrayList<String> fromCSVLinetoArray(String source) {  
         if (source == null || source.length() == 0) {  
             return new ArrayList<String>();  
     }  

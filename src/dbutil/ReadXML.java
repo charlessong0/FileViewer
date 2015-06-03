@@ -1,10 +1,7 @@
 package dbutil;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -34,9 +31,8 @@ public class ReadXML {
 	private Document doc = null;
 	private Element root = null;
 	private Error error = new Error();
-	 
+	private ArrayList<FileSample> fileList = new ArrayList<FileSample>();
 	
-	 
 	public ReadXML(String filepath) {
 		/*
 		setFilepath(filepath);
@@ -87,7 +83,6 @@ public class ReadXML {
 		System.out.println(files.getLength());
 		
 		// read file list
-		ArrayList<FileSample> fileList = new ArrayList<FileSample>();
 		for (int i = 1; i <= getNum(files.getLength()); i++) {
 			//System.out.println(i);
 			Node file = files.item(setNum(i));
@@ -105,7 +100,6 @@ public class ReadXML {
 			Node fileStructure = innerFile.item(setNum(2));
 			//System.out.println(fileStructure.getNodeName());
 			readFile.setStructure(structure);
-			
 			
 			//set file table
 			Table table = new Table();
@@ -141,13 +135,16 @@ public class ReadXML {
 					column.setUpper(upper);
 					column.setLower(lower);
 				}
-				
+				validation.addColumn(column);;
 			}
 			readFile.setValidation(validation);
 			
 			fileList.add(readFile);
 		}
-	 
+	}
+	
+	public ArrayList<FileSample> getFileList() {
+		return fileList;
 	}
 	 
 // those are private methods

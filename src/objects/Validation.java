@@ -9,8 +9,8 @@ public class Validation {
 		columnList.add(column);
 	}
 	
-	//column start from 0
+	//column start from 1
 	public ColumnVal getColumn(int i) {
-		return columnList.get(i);
+		return columnList.get(i-1);
 	}
 }
