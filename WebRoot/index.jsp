@@ -26,8 +26,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <jsp:useBean id="user" class="test.Test" scope="page"></jsp:useBean> 
     <jsp:getProperty property="user" name="user"/> 
 
-	<jsp:useBean id="error" class="test.TestTable" scope="page"></jsp:useBean> 
-    <jsp:getProperty property="error" name="error"/>
     <b>PP_TRR</b><br><b>2015-06-03</b>
     <table border='1'cellspacing="0" cellpadding="0" > 
     
