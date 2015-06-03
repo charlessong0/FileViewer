@@ -25,14 +25,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <jsp:useBean id="user" class="test.Test" scope="page"></jsp:useBean> 
     <jsp:getProperty property="user" name="user"/> 
-    
 
-	
+	<jsp:useBean id="error" class="test.TestTable" scope="page"></jsp:useBean> 
+    <jsp:getProperty property="error" name="error"/>
     <b>PP_TRR</b><br><b>2015-06-03</b>
     <table border='1'cellspacing="0" cellpadding="0" > 
     
     <jsp:useBean id="table" class="test.TestTable" scope="page"></jsp:useBean> 
     <jsp:getProperty property="table" name="table"/> 
+    
     </table>
     <div style="color:red"><b>there is a validation conflict in row 1 column 10, which is marked in red</b></div>
     
