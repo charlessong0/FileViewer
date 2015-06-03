@@ -17,18 +17,20 @@
 		<uploadtime></uploadtime>
 	</table>
 	<validate>
-		<c1 required="true" type="ID">
-		</c1>
-		<c2 required="true" type="ID">
-		</c2>
-		<c3 required="true" type="ID">
-		</c3>
-		<c4 required="true" type="ID">
-		</c4>
-		<c5 required="true" type="ID">
-		</c5>
-		<c5 required="true" type="number">
-		</c5>
+		<c1 required="true" type="ID"></c1>
+		<c2 required="true" type="ID"></c2>
+		<c3 required="true" type="ID"></c3>
+		<c4 required="true" type="ID"></c4>
+		<c5 required="true" type="ID"></c5>
+		<c6 required="true" type="number"></c6>
+		<c7 required="true" type="number"></c7>
+		<c8 required="true" type="number"></c8>
+		<c9 required="true" type="number"></c9>
+		<c10 required="true" type="number">
+			<upper></upper>
+			<lower>0</lower>
+		</c10>
+		<c11 required="true" type="number"></c11>
 	</validate>
 </file>
 <file>

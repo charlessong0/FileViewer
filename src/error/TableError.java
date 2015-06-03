@@ -1,4 +1,4 @@
-package test;
+package error;
 
 public class TableError {
 
