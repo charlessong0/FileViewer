@@ -95,20 +95,84 @@ public class ReadXML {
 			//System.out.println(fileType.getTextContent());
 			readFile.setFileType(fileType.getTextContent());
 			
-			//set file structure
+			//set file structure - done
 			Structure structure = new Structure();
 			Node fileStructure = innerFile.item(setNum(2));
 			//System.out.println(fileStructure.getNodeName());
+			NodeList structureList = fileStructure.getChildNodes();
+			int structureLength = getNum(structureList.getLength());
+			for (int j = 1; j <= structureLength; j++) {
+				Node structureInfo = structureList.item(setNum(j));
+				//System.out.println(structureInfo.getTextContent());
+				if ("fileheader".equals(structureInfo.getNodeName())) {
+					structure.setFileHeader(structureInfo.getTextContent());
+				}
+				else if ("filefooter".equals(structureInfo.getNodeName())) {
+					structure.setFileFooter(structureInfo.getTextContent());
+				}
+				else if ("batchheader".equals(structureInfo.getNodeName())) {
+					structure.setBatchHeader(structureInfo.getTextContent());
+				}
+				else if ("batchfooter".equals(structureInfo.getNodeName())) {
+					structure.setBatchFooter(structureInfo.getTextContent());
+				}
+				else if ("title".equals(structureInfo.getNodeName())) {
+					structure.setTitle(structureInfo.getTextContent());
+				}
+				else if ("content".equals(structureInfo.getNodeName())) {
+					structure.setContent(structureInfo.getTextContent());
+				}
+				else
+					error.err(12);
+			}
 			readFile.setStructure(structure);
 			
-			//set file table
+			//set file table - done
 			Table table = new Table();
 			Node fileTable = innerFile.item(setNum(3));
 			//System.out.println(fileTable.getNodeName());
+			NodeList tableList = fileTable.getChildNodes();
+			for (int j = 1; j <= getNum(tableList.getLength()); j++) {
+				Node tableInfo = tableList.item(setNum(j));
+				if ("hastitle".equals(tableInfo.getNodeName())) {
+					if ("1".equals(tableInfo.getTextContent()))
+						table.setHasTitle(true);
+					else 
+						table.setHasTitle(false);
+				}
+				else if ("filename".equals(tableInfo.getNodeName())) {
+					table.setFileName(tableInfo.getTextContent());
+				}
+				else if ("filetype".equals(tableInfo.getNodeName())) {
+					table.setFileType(tableInfo.getTextContent());
+				}
+				else if ("uploadtime".equals(tableInfo.getNodeName())) {
+					table.setUpdateTime(tableInfo.getTextContent());
+				}
+				//title - set column names in the table
+				else if ("title".equals(tableInfo.getNodeName())) {
+					NodeList titleList = tableInfo.getChildNodes();
+					for (int k = 1; k <= getNum(titleList.getLength()); k++) {
+						Node column = titleList.item(setNum(k));
+						String testColumn = column.getNodeName();
+						//System.out.println(testColumn.charAt(0));
+						if ('c' == testColumn.charAt(0)) {
+							table.addColumn(column.getTextContent());
+						}
+						else
+							error.err(131);
+					}
+					table.addTitle();
+					//System.out.println(table.getTitleList().size());
+				}
+				else
+					error.err(13);
+				//System.out.println(table.getHasTitle());
+			}
 			readFile.setTable(table);;
 			
 			
-			//set file validation
+			//set file validation - done
 			Validation validation = new Validation();
 			Node fileValidation = innerFile.item(setNum(4));
 			NodeList validationColumn = fileValidation.getChildNodes();

@@ -15,6 +15,7 @@
 		<filename></filename>
 		<filetype></filetype>
 		<uploadtime></uploadtime>
+		<title></title>
 	</table>
 	<validate>
 		<c1 required="true" type="ID"></c1>
@@ -22,15 +23,30 @@
 		<c3 required="true" type="ID"></c3>
 		<c4 required="true" type="ID"></c4>
 		<c5 required="true" type="ID"></c5>
-		<c6 required="true" type="number"></c6>
-		<c7 required="true" type="number"></c7>
-		<c8 required="true" type="number"></c8>
-		<c9 required="true" type="number"></c9>
-		<c10 required="true" type="number">
-			<upper></upper>
+		<c6 required="true" type="number">
+			<upper>99999</upper>
 			<lower>0</lower>
+		</c6>
+		<c7 required="true" type="number">
+			<upper>99999</upper>
+			<lower>0</lower>
+		</c7>
+		<c8 required="true" type="number">
+			<upper>99999</upper>
+			<lower>0</lower>
+		</c8>
+		<c9 required="true" type="number">
+			<upper>99999</upper>
+			<lower>0</lower>
+		</c9>
+		<c10 required="true" type="number">
+			<upper>99999</upper>
+			<lower>-400</lower>
 		</c10>
-		<c11 required="true" type="number"></c11>
+		<c11 required="true" type="number">
+			<upper>99999</upper>
+			<lower>0</lower>
+		</c11>
 	</validate>
 </file>
 <file>
@@ -86,7 +102,7 @@
 		<fileheader>FH</fileheader>
 		<batchheader>BH</batchheader>
 		<title></title>
-		<content></content>
+		<content>NUMBER</content>
 		<batchfooter>BF</batchfooter>
 		<filefooter>FF</filefooter>
 	</structure>
