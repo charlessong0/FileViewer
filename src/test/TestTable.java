@@ -24,6 +24,7 @@ public class TestTable {
 		int length = 0;
 		String token = "";
 		boolean view = false;
+		boolean isTitle = false;
 		int row = 0;
 		int column = 0;
 		
@@ -39,11 +40,18 @@ public class TestTable {
 					token = (String) it.next();
 					if (token.equals("CH")) {
 						view = true;
-						table += "<tr background-color=\"red\">";
-						table += "<td>Index</td>";
+						isTitle = true;
+						table += "<thead>";
+						table += "<tr>";
+						table += "<th>Index</th>";
 					}
 					else if (token.equals("SB")) {
 						view = true;
+						if (isTitle) {
+							isTitle = false;
+							table += "</tr>";
+							table += "</thead>";
+						}
 						row ++;
 						column = 1;
 						table += "</tr>";
@@ -80,9 +88,17 @@ public class TestTable {
 							}
 						}
 						else {
-							table += "<td>";
-							table += token;
-							table += "</td>";
+							if (isTitle) {
+								table += "<th>";
+								table += token;
+								table += "</th>";
+							}
+							else {
+								table += "<td>";
+								table += token;
+								table += "</td>";
+							}
+							
 						}
 					}
 				}
