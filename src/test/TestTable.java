@@ -50,7 +50,7 @@ public class TestTable {
 						if (isTitle) {
 							isTitle = false;
 							table += "</tr>";
-							table += "</thead>";
+							table += "</thead><tbody>";
 						}
 						row ++;
 						column = 1;

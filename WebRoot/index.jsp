@@ -68,7 +68,7 @@ $(bootstrap-table).ready( function() {
     <jsp:useBean id="table" class="test.TestTable" scope="page"></jsp:useBean> 
     <jsp:getProperty property="table" name="table"/> 
     
-    
+    </tbody>
     </table>
     
      
