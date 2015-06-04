@@ -9,6 +9,7 @@ import objects.Validation;
 
 public class TestTable {
 	public String table = "";
+	public String error = "";
 
 	public String getTable() throws Exception {
 		//FileReader fr = new FileReader("C:\\Users\\znsong\\Documents\\My Received Files\\US-eBay-EOM-Fees@ebay.com.TRR-20140702.01.008.csv");
@@ -65,6 +66,12 @@ public class TestTable {
 								table += "<td bgcolor=\"red\">";
 								table += token;
 								table += "</td>";
+								error += "<div style=\"color:red\"><b>there is a validation conflict in row ";
+								error += row;
+								error += ", column ";
+								error += column;
+								error += "which is marked in red</b></div>";
+								System.out.println(error);
 							}
 							else {
 								table += "<td>";
