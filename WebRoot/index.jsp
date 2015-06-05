@@ -21,8 +21,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
 	<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
 	<link href="css/jquery.bdt.css" type="text/css" rel="stylesheet">
-
 	
+	<link href="css/bsetterTable.css" type="text/css" rel="stylesheet">
+	
+
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/jquery.sortelements.js" type="text/javascript"></script>
+	<script src="js/jquery.bdt.js" type="text/javascript"></script>
+    <script>
+	$(document).ready( function () {
+	    $('#bootstrap-table').bdt();
+	});
+	
+	$(document).ready( function() {
+  	$('#example').dataTable( {
+    "aoColumnDefs": [
+      { "bSortable": true, "aTargets": [ 0 ] }
+    	] } );
+	} );
+	 
+ 
+	// Using aoColumns
+	$(document).ready( function() {
+	  $('#example').dataTable( {
+	    "aoColumns": [
+	      { "bSortable": true },
+	      null,
+	      null,
+	      null,
+	      null
+	    ] } );
+	} );
+	</script>
 	
   </head>
   
@@ -33,36 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <b>PP_TRR</b><br><b>2015-06-03</b>
     
-   <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="js/jquery.sortelements.js" type="text/javascript"></script>
-	<script src="js/jquery.bdt.js" type="text/javascript"></script>
-    <script>
     
-	$(document).ready( function () {
-	    $('#bootstrap-table').bdt();
-	});
-	// Using aoColumnDefs
-$(document).ready( function() {
-  $('#example').dataTable( {
-    "aoColumnDefs": [ 
-      { "bSortable": true, "aTargets": [ 0 ] }
-    ] } );
-} );
- 
- 
-// Using aoColumns
-$(bootstrap-table).ready( function() {
-  $('#example').dataTable( {
-    "aoColumns": [ 
-      { "bSortable": true },
-      null,
-      null,
-      null,
-      null
-    ] } );
-} );
-	</script>
     <table id="bootstrap-table" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
     
     <jsp:useBean id="table" class="test.TestTable" scope="page"></jsp:useBean> 
@@ -73,7 +75,8 @@ $(bootstrap-table).ready( function() {
     
      
     
-    <div style="color:red"><b>there is a validation conflict in row 1 column 10, which is marked in red</b></div>
+    <br>
+    <br><div style="color:red"><b>there is a validation conflict in row 1 column 10, which is marked in red</b></div>
     
   </body>
 </html>
