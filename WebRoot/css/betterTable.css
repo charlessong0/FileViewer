@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+/* Border styles */
+.table-hover thead, .table-hover tr {
+border-top-width: 1px;
+border-top-style: solid;
+border-top-color: rgb(230, 189, 189);
+}
+.table-hover {
+border-bottom-width: 1px;
+border-bottom-style: solid;
+border-bottom-color: rgb(230, 189, 189);
+}
+
+/* Padding and font style */
+.table-hover td, .table-hover th {
+padding: 5px 10px;
+font-size: 12px;
+font-family: Verdana;
+color: rgb(177, 106, 104);
+}
+
+/* Alternating background colors */
+.table-hover tr:nth-child(even) {
+background: rgb(238, 211, 210)
+}
+.table-hover tr:nth-child(odd) {
+background: #FFF
+}
