@@ -143,4 +143,51 @@
 	<validate>
 	</validate>
 </file>
+<file>
+	<filetype>PP_result</filetype>
+	<structure>
+		<fileheader>FH</fileheader>
+		<batchheader>BH</batchheader>
+		<title></title>
+		<content>NUMBER</content>
+		<batchfooter>BF</batchfooter>
+		<filefooter>FF</filefooter>
+	</structure>
+	<table>
+		<hastitle>0</hastitle>
+		<filename></filename>
+		<filetype></filetype>
+		<uploadtime></uploadtime>
+		<title>
+			<c1>ItemNumber</c1>
+			<c2>RTToken</c2>
+			<c3>ReferenceId</c3>
+			<c4>PaymentAction</c4>
+			<c5>PaymentType</c5>
+			<c6>MsgSubId</c6>
+			<c7>IPAddress</c7>
+			<c8>ReqConfirmShipping</c8>
+			<c9>ReturnFMFDetails</c9>
+			<c10>MerchantSessionId</c10>
+			<c11>SoftDescription</c11>
+			<c12>PaymentReason</c12>
+		</title>
+		<title>
+			<c1>ItemNumber</c1>
+			<c2>PDToken</c2>
+			<c3>OrderTotal</c3>
+			<c4>ItemTotal</c4>
+			<c5>ShippingTotal</c5>
+			<c6>HandlingTotal</c6>
+			<c7>TaxTotal</c7>
+			<c8>OrderDescription</c8>
+			<c9>Custom</c9>
+			<c10>InvoiceId</c10>
+			<c11>other</c11>
+		</title>
+	</table>
+		
+	<validate>
+	</validate>
+</file>
 </xml>
