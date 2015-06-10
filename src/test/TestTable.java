@@ -3,6 +3,7 @@ package test;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import dbutil.FileReader;
 import dbutil.ReadXML;
 import objects.FileSample;
 import objects.Structure;
