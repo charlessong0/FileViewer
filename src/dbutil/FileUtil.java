@@ -7,14 +7,14 @@ import objects.Structure;
 import error.Error;
 
 public class FileUtil {
-	private FileReader fr;
+	private FileReaderCSV fr;
 	private String path = null;
 	private Structure structure = null;
 	public Error err;
 	
 	public FileUtil(String path) throws Exception {
 		this.path = path;
-		fr = new FileReader(this.path);
+		fr = new FileReaderCSV(this.path);
 	}
 	
 	/*
@@ -203,7 +203,7 @@ public class FileUtil {
 		return path;
 	}
 	
-	public FileReader getFR() {
+	public FileReaderCSV getFR() {
 		return fr;
 	}
 	

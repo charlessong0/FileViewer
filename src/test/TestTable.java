@@ -3,7 +3,7 @@ package test;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import dbutil.FileReader;
+import dbutil.FileReaderCSV;
 import dbutil.ReadCSVXML;
 import objects.FileSample;
 import objects.Structure;
@@ -17,7 +17,7 @@ public class TestTable {
 	public String getTable() throws Exception {
 		//FileReader fr = new FileReader("C:\\Users\\znsong\\Documents\\My Received Files\\US-eBay-EOM-Fees@ebay.com.TRR-20140702.01.008.csv");
 		//FileReader fr = new FileReader("C:\\Users\\znsong\\Documents\\My Received Files\\MVX5N5KZ9CTX8_results_2014-05-15-446.csv");
-		FileReader fr = new FileReader("C:\\Users\\znsong\\Documents\\My Received Files\\US-eBay-EOM-Fees@ebay.com.TRR-20140702.01.008.csv");
+		FileReaderCSV fr = new FileReaderCSV("C:\\Users\\znsong\\Documents\\My Received Files\\US-eBay-EOM-Fees@ebay.com.TRR-20140702.01.008.csv");
 		ReadCSVXML readXML = new ReadCSVXML("C:\\Users\\znsong\\Documents\\My Received Files\\structure.xml");
 		ArrayList<FileSample> fileList = readXML.getFileList();
 		FileSample file = fileList.get(0);
