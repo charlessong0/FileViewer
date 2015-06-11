@@ -42,10 +42,10 @@ public class ReadFixedXML {
 		setDoc(this.db);
 		setRoot(this.doc);
 		
-		System.out.println(root.getNodeName());
+		//System.out.println(root.getNodeName());
 		NodeList files = root.getChildNodes();
-		System.out.println(files.item(1).getNodeName());
-		System.out.println(files.getLength());
+		//System.out.println(files.item(1).getNodeName());
+		//System.out.println(files.getLength());
 		
 		// read file list
 		for (int i = 1; i <= getNum(files.getLength()); i++) {
@@ -105,6 +105,12 @@ public class ReadFixedXML {
 					else 
 						table.setHasTitle(false);
 				}
+				else if ("hastailer".equals(tableInfo.getNodeName())) {
+					if ("1".equals(tableInfo.getTextContent()))
+						table.setHasTailer(true);
+					else 
+						table.setHasTailer(false);
+				}
 				else if ("filename".equals(tableInfo.getNodeName())) {
 					table.setFileName(tableInfo.getTextContent());
 				}
@@ -125,8 +131,10 @@ public class ReadFixedXML {
 					NodeList titleList = tableInfo.getChildNodes();
 					Node header = titleList.item(setNum(1));
 					Node content = titleList.item(setNum(2));
+					Node tailer = titleList.item(setNum(3));
 					NodeList headerList = header.getChildNodes();
 					NodeList contentList = content.getChildNodes();
+					NodeList tailerList = tailer.getChildNodes();
 					
 					for (int k = 1; k <= getNum(headerList.getLength()); k++) {
 						Node column = headerList.item(setNum(k));
@@ -152,6 +160,21 @@ public class ReadFixedXML {
 							table.content.addStart(Integer.parseInt(column.getAttributes().getNamedItem("start").getTextContent()));
 							table.content.addLength(Integer.parseInt(column.getAttributes().getNamedItem("length").getTextContent()));
 							table.content.addEnd(Integer.parseInt(column.getAttributes().getNamedItem("end").getTextContent()));
+						}
+						else
+							error.err(131);
+					}
+					table.addTitle();
+					
+					for (int k = 1; k <= getNum(tailerList.getLength()); k++) {
+						Node column = tailerList.item(setNum(k));
+						String testColumn = column.getNodeName();
+						//System.out.println(testColumn.charAt(0));
+						if ('c' == testColumn.charAt(0)) {
+							table.addColumn(column.getAttributes().getNamedItem("name").getTextContent());
+							table.tailer.addStart(Integer.parseInt(column.getAttributes().getNamedItem("start").getTextContent()));
+							table.tailer.addLength(Integer.parseInt(column.getAttributes().getNamedItem("length").getTextContent()));
+							table.tailer.addEnd(Integer.parseInt(column.getAttributes().getNamedItem("end").getTextContent()));
 						}
 						else
 							error.err(131);

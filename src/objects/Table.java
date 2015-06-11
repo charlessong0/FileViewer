@@ -1,9 +1,11 @@
 package objects;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Table {
 	private boolean hasTitle = false;
+	private boolean hasTailer = false;
 	private String fileName = null;
 	private String fileType = null;
 	private String updateTime = null;
@@ -13,9 +15,14 @@ public class Table {
 	
 	public HeaderTitle header = new HeaderTitle();
 	public ContentTitle content = new ContentTitle();
+	public TailerTitle tailer = new TailerTitle();
 
 	public ArrayList<ArrayList<String>> getTitleList() {
 		return titleList;
+	}
+	
+	public boolean getHasTailer() {
+		return hasTailer;
 	}
 	
 	public boolean getHasTitle() {
@@ -40,6 +47,10 @@ public class Table {
 	
 	public void setHasTitle(boolean hasTitle) {
 		this.hasTitle = hasTitle;
+	}
+	
+	public void setHasTailer(boolean hasTailer) {
+		this.hasTailer = hasTailer;
 	}
 	
 	public void setFileName(String fileName) {
