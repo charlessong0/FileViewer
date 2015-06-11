@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import dbutil.FileReader;
-import dbutil.ReadXML;
+import dbutil.ReadCSVXML;
 import objects.FileSample;
 import objects.Structure;
 import objects.Table;
@@ -18,7 +18,7 @@ public class TestTable {
 		//FileReader fr = new FileReader("C:\\Users\\znsong\\Documents\\My Received Files\\US-eBay-EOM-Fees@ebay.com.TRR-20140702.01.008.csv");
 		//FileReader fr = new FileReader("C:\\Users\\znsong\\Documents\\My Received Files\\MVX5N5KZ9CTX8_results_2014-05-15-446.csv");
 		FileReader fr = new FileReader("C:\\Users\\znsong\\Documents\\My Received Files\\US-eBay-EOM-Fees@ebay.com.TRR-20140702.01.008.csv");
-		ReadXML readXML = new ReadXML("C:\\Users\\znsong\\Documents\\My Received Files\\structure.xml");
+		ReadCSVXML readXML = new ReadCSVXML("C:\\Users\\znsong\\Documents\\My Received Files\\structure.xml");
 		ArrayList<FileSample> fileList = readXML.getFileList();
 		FileSample file = fileList.get(0);
 		Validation validation = file.getValidation();

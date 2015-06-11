@@ -10,6 +10,11 @@ public class Table {
 	private String updateTime = null;
 	private ArrayList<List<String>> titleList = new ArrayList<List<String>>();
 	private ArrayList<String> title = new ArrayList<String>();
+	private int totalLength = 0;
+	
+	public HeaderTitle header = new HeaderTitle();
+	public ContentTitle content = new ContentTitle();
+	
 	
 	public boolean getHasTitle() {
 		return hasTitle;
@@ -25,6 +30,10 @@ public class Table {
 	
 	public String getUpdateTime() {
 		return updateTime;
+	}
+	
+	public int getTotalLength() {
+		return totalLength;
 	}
 	
 	public void setHasTitle(boolean hasTitle) {
@@ -43,6 +52,10 @@ public class Table {
 		this.updateTime = updateTime;
 	}
 	
+	public void setTotalLength(int length) {
+		this.totalLength = length;
+	}
+	
 	//methods for title
 	public void addTitle() {
 		titleList.add(title);
@@ -56,5 +69,5 @@ public class Table {
 	public ArrayList<List<String>> getTitleList() {
 		return titleList;
 	}
-
+	
 }

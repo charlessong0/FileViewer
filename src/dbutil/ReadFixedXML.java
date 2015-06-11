@@ -23,7 +23,7 @@ import org.xml.sax.SAXException;
 import error.Error;
 
 
-public class ReadXML {
+public class ReadFixedXML {
 	private String filepath = "";
 	private DocumentBuilder db= null;
 	private DocumentBuilderFactory dbf= null;
@@ -33,42 +33,7 @@ public class ReadXML {
 	private Error error = new Error();
 	private ArrayList<FileSample> fileList = new ArrayList<FileSample>();
 	
-	public ReadXML(String filepath) {
-		/*
-		setFilepath(filepath);
-		System.out.println(this.filepath);
-		setFile();
-		setDocumentBuilderFactory();
-		setDocumentBuilder();
-		setDoc(this.db);
-		setRoot(this.doc);
-		
-		System.out.println(root.getNodeName());
-		//System.out.println(root.getTextContent());
-		System.out.println(root.getAttributes().getNamedItem("class").getTextContent());
-		
-		NodeList childnodes = root.getChildNodes();
-		Node detail = childnodes.item(5);
-		if (detail.getNodeName() == "#text") {
-			System.out.println("haha123");
-		}
-		//System.out.println(detail.getTextContent());
-		System.out.println(detail.getNodeName());
-		System.out.println(childnodes.getLength());
-		
-		NodeList childnodes2 = detail.getChildNodes();
-		Node detail2 = childnodes2.item(1);
-		System.out.println("~~~~~~~~~~~~~~~~~~");
-		System.out.println(detail2.getAttributes().getNamedItem("value").getTextContent());
-		System.out.println(detail2.getNodeName());
-		System.out.println(detail2.getTextContent());
-		if (detail2.getTextContent().equals(""))
-			System.out.println("empty!!!!!!");
-		System.out.println(childnodes2.getLength());
-		
-		System.out.println("this is the end of the test");
-		
-		*/
+	public ReadFixedXML(String filepath) {
 		setFilepath(filepath);
 		System.out.println(this.filepath);
 		setFile();
@@ -79,7 +44,7 @@ public class ReadXML {
 		
 		System.out.println(root.getNodeName());
 		NodeList files = root.getChildNodes();
-		System.out.println(files.item(5).getNodeName());
+		System.out.println(files.item(1).getNodeName());
 		System.out.println(files.getLength());
 		
 		// read file list
@@ -149,15 +114,44 @@ public class ReadXML {
 				else if ("uploadtime".equals(tableInfo.getNodeName())) {
 					table.setUpdateTime(tableInfo.getTextContent());
 				}
+				else if ("totallength".equals(tableInfo.getNodeName())) {
+					if ("".equals(tableInfo.getTextContent())) 
+						table.setTotalLength(0);
+					else 
+						table.setTotalLength(Integer.parseInt(tableInfo.getTextContent()));
+				}
 				//title - set column names in the table
 				else if ("title".equals(tableInfo.getNodeName())) {
 					NodeList titleList = tableInfo.getChildNodes();
-					for (int k = 1; k <= getNum(titleList.getLength()); k++) {
-						Node column = titleList.item(setNum(k));
+					Node header = titleList.item(setNum(1));
+					Node content = titleList.item(setNum(2));
+					NodeList headerList = header.getChildNodes();
+					NodeList contentList = content.getChildNodes();
+					
+					for (int k = 1; k <= getNum(headerList.getLength()); k++) {
+						Node column = headerList.item(setNum(k));
 						String testColumn = column.getNodeName();
 						//System.out.println(testColumn.charAt(0));
 						if ('c' == testColumn.charAt(0)) {
-							table.addColumn(column.getTextContent());
+							table.addColumn(column.getAttributes().getNamedItem("name").getTextContent());
+							table.header.addStart(Integer.parseInt(column.getAttributes().getNamedItem("start").getTextContent()));
+							table.header.addLength(Integer.parseInt(column.getAttributes().getNamedItem("length").getTextContent()));
+							table.header.addEnd(Integer.parseInt(column.getAttributes().getNamedItem("end").getTextContent()));
+						}
+						else
+							error.err(131);
+					}
+					table.addTitle();
+					
+					for (int k = 1; k <= getNum(contentList.getLength()); k++) {
+						Node column = contentList.item(setNum(k));
+						String testColumn = column.getNodeName();
+						//System.out.println(testColumn.charAt(0));
+						if ('c' == testColumn.charAt(0)) {
+							table.addColumn(column.getAttributes().getNamedItem("name").getTextContent());
+							table.content.addStart(Integer.parseInt(column.getAttributes().getNamedItem("start").getTextContent()));
+							table.content.addLength(Integer.parseInt(column.getAttributes().getNamedItem("length").getTextContent()));
+							table.content.addEnd(Integer.parseInt(column.getAttributes().getNamedItem("end").getTextContent()));
 						}
 						else
 							error.err(131);
@@ -169,41 +163,42 @@ public class ReadXML {
 					error.err(13);
 				//System.out.println(table.getHasTitle());
 			}
-			readFile.setTable(table);;
-			
-			
-			//set file validation - done
-			Validation validation = new Validation();
-			Node fileValidation = innerFile.item(setNum(4));
-			NodeList validationColumn = fileValidation.getChildNodes();
-			//System.out.println(fileValidation.getNodeName());
-			//set columns
-			for (int j = 1; j <= getNum(validationColumn.getLength()); j++) {
-				Node fileColumn = validationColumn.item(setNum(j));
-				ColumnVal column = new ColumnVal();
-				
-				System.out.println(fileColumn.getNodeName());
-				
-				if ("true".equals(fileColumn.getAttributes().getNamedItem("required").getTextContent()))
-					column.setRequired(true);
-				else if ("false".equals(fileColumn.getAttributes().getNamedItem("required").getTextContent()))
-					column.setRequired(false);
-				else
-					error.err(14);
-				
-				String type = fileColumn.getAttributes().getNamedItem("type").getTextContent();
-				column.setType(type);
-				if ("number".equals(type)) {
-					int upper = Integer.parseInt(fileColumn.getChildNodes().item(1).getTextContent());
-					int lower = Integer.parseInt(fileColumn.getChildNodes().item(3).getTextContent());
-					column.setUpper(upper);
-					column.setLower(lower);
-				}
-				validation.addColumn(column);;
-			}
-			readFile.setValidation(validation);
-			
+			readFile.setTable(table);
 			fileList.add(readFile);
+			
+			
+//			//set file validation - done
+//			Validation validation = new Validation();
+//			Node fileValidation = innerFile.item(setNum(4));
+//			NodeList validationColumn = fileValidation.getChildNodes();
+//			//System.out.println(fileValidation.getNodeName());
+//			//set columns
+//			for (int j = 1; j <= getNum(validationColumn.getLength()); j++) {
+//				Node fileColumn = validationColumn.item(setNum(j));
+//				ColumnVal column = new ColumnVal();
+//				
+//				//System.out.println(fileColumn.getNodeName());
+//				
+//				if ("true".equals(fileColumn.getAttributes().getNamedItem("required").getTextContent()))
+//					column.setRequired(true);
+//				else if ("false".equals(fileColumn.getAttributes().getNamedItem("required").getTextContent()))
+//					column.setRequired(false);
+//				else
+//					error.err(14);
+//				
+//				String type = fileColumn.getAttributes().getNamedItem("type").getTextContent();
+//				column.setType(type);
+//				if ("number".equals(type)) {
+//					int upper = Integer.parseInt(fileColumn.getChildNodes().item(1).getTextContent());
+//					int lower = Integer.parseInt(fileColumn.getChildNodes().item(3).getTextContent());
+//					column.setUpper(upper);
+//					column.setLower(lower);
+//				}
+//				validation.addColumn(column);;
+//			}
+//			readFile.setValidation(validation);
+//			
+//			fileList.add(readFile);
 		}
 	}
 	
