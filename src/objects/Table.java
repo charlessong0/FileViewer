@@ -1,20 +1,22 @@
 package objects;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Table {
 	private boolean hasTitle = false;
 	private String fileName = null;
 	private String fileType = null;
 	private String updateTime = null;
-	private ArrayList<List<String>> titleList = new ArrayList<List<String>>();
+	private ArrayList<ArrayList<String>> titleList = new ArrayList<ArrayList<String>>();
 	private ArrayList<String> title = new ArrayList<String>();
 	private int totalLength = 0;
 	
 	public HeaderTitle header = new HeaderTitle();
 	public ContentTitle content = new ContentTitle();
-	
+
+	public ArrayList<ArrayList<String>> getTitleList() {
+		return titleList;
+	}
 	
 	public boolean getHasTitle() {
 		return hasTitle;
@@ -66,8 +68,5 @@ public class Table {
 		title.add(column);
 	}
 	
-	public ArrayList<List<String>> getTitleList() {
-		return titleList;
-	}
-	
+
 }

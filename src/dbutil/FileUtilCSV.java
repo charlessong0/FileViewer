@@ -6,13 +6,13 @@ import java.util.Iterator;
 import objects.Structure;
 import error.Error;
 
-public class FileUtil {
+public class FileUtilCSV {
 	private FileReaderCSV fr;
 	private String path = null;
 	private Structure structure = null;
 	public Error err;
 	
-	public FileUtil(String path) throws Exception {
+	public FileUtilCSV(String path) throws Exception {
 		this.path = path;
 		fr = new FileReaderCSV(this.path);
 	}
