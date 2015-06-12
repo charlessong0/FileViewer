@@ -70,11 +70,11 @@ public class FileReaderCSV {
 
     /** 
      * store a line into array, do not set the length 
-     */
+     */  
     public ArrayList<String> fromCSVLinetoArray(String source) {  
         if (source == null || source.length() == 0) {  
             return new ArrayList<String>();  
-    }  
+        }  
         int currentPosition = 0;  
         int maxPosition = source.length();  
         int nextComma = 0;  
@@ -88,12 +88,12 @@ public class FileReaderCSV {
             }  
         }  
         return rtnArray;  
-    }
+    }  
 
 
     /** 
      * translate string array into CSV line
-     */
+     */  
     public static String toCSVLine(String[] strArray) {  
         if (strArray == null) {  
             return "";  
@@ -107,11 +107,11 @@ public class FileReaderCSV {
             }  
         }  
         return cvsLine.toString();  
-    }
-
+    }  
+  
     /** 
      * translate string List into CSV line
-     */
+     */  
     public static String toCSVLine(ArrayList<String> strArrList) {  
         if (strArrList == null) {  
             return "";  
@@ -121,7 +121,7 @@ public class FileReaderCSV {
             strArray[idx] = (String) strArrList.get(idx);  
         }  
         return toCSVLine(strArray);  
-    }
+    }  
   
     // ==========Private Methods=============================  
     /** 
@@ -137,14 +137,14 @@ public class FileReaderCSV {
         int index = str.indexOf(c, start);  
         return index == -1 ? i : countChar(str, c, index + 1) + 1;  
     }  
-
+  
     /** 
      * find the position of next comma
      * 
      * @param source
      * @param st  
      * @return
-     */
+     */  
     private static int nextComma(String source, int st) {  
         int maxPosition = source.length();  
         boolean inquote = false;  
@@ -159,7 +159,7 @@ public class FileReaderCSV {
         }  
         return st;  
     }  
-  
+
     /** 
      *find next string token
      */  
@@ -179,7 +179,7 @@ public class FileReaderCSV {
         }  
         return strb.toString();  
     }  
-  
+
     /** 
      * add double quotation marks for a string token
      * 
@@ -202,5 +202,5 @@ public class FileReaderCSV {
         }  
         sb.append('"');  
         return sb.toString();  
-    }
+    }  
 }  

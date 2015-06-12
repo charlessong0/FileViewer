@@ -3,6 +3,7 @@ package dbutil;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import objects.FileSample;
 import objects.Structure;
 import error.Error;
 
@@ -10,11 +11,19 @@ public class FileUtilCSV {
 	private FileReaderCSV fr;
 	private String path = null;
 	private Structure structure = null;
+	private FileSample fs = null;
 	public Error err;
 	
 	public FileUtilCSV(String path) throws Exception {
 		this.path = path;
 		fr = new FileReaderCSV(this.path);
+	}
+	
+	public FileUtilCSV(String path, FileSample fs) throws Exception {
+		this.path = path;
+		fr = new FileReaderCSV(this.path);
+		this.fs = fs;
+		this.structure = fs.getStructure();
 	}
 	
 	/*

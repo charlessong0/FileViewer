@@ -12,6 +12,7 @@ public class Error {
 		//14 validation
 		//21 no such batch header in the file
 		//31 page index out of bound
+		//40 empty fixed file
 	}
 
 }

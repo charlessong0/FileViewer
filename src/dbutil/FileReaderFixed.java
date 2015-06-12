@@ -28,6 +28,19 @@ public class FileReaderFixed {
 	private ArrayList<Integer> tailerEnd = null;
 	
   
+	public FileReaderFixed(String filename) throws Exception {  
+        fis = new FileInputStream(filename);  
+        isw = new InputStreamReader(fis, ENCODE);  
+        br = new BufferedReader(isw);
+    }
+    
+    public FileReaderFixed(String filename, FileSample fs) throws Exception { 
+    	setFileSample(fs);
+        fis = new FileInputStream(filename);  
+        isw = new InputStreamReader(fis, ENCODE);  
+        br = new BufferedReader(isw);
+    }   
+	    
     //we should set the fileSample first before reading the file for the fixed file. 
     //While for the CSV file, we do not have to read the sample first.
     public void setFileSample(FileSample fs) {
@@ -53,18 +66,6 @@ public class FileReaderFixed {
     	return hasTailer;
     }
     
-    public FileReaderFixed(String filename) throws Exception {  
-        fis = new FileInputStream(filename);  
-        isw = new InputStreamReader(fis, ENCODE);  
-        br = new BufferedReader(isw);
-    }
-    
-    public FileReaderFixed(String filename, FileSample fs) throws Exception { 
-    	setFileSample(fs);
-        fis = new FileInputStream(filename);  
-        isw = new InputStreamReader(fis, ENCODE);  
-        br = new BufferedReader(isw);
-    }  
     
     // =========Public Methods=============================  
     /** 
@@ -72,22 +73,9 @@ public class FileReaderFixed {
      * 
      * @throws Exception 
      */  
-    public String readLine() throws Exception {  
-        return br.readLine();
-//        while (bReadNext) {  
-//            if (readLine.length() > 0) {  
-//                readLine.append("\r\n");  
-//            }  
-//            // a line  
-//            String strReadLine = br.readLine();  
-//  
-//            // readLine is Null  
-//            if (strReadLine == null) {  
-//                return null;  
-//            }  
-//            readLine.append(strReadLine);  
-//        }  
-//        return readLine.toString();  
+    public String readLine() throws Exception {
+    	String temp = br.readLine();
+        return temp;
     }
     
     /**
@@ -126,39 +114,7 @@ public class FileReaderFixed {
     	
     	return array;
     }
-//
-//    /** 
-//     * translate string array into CSV line
-//     */  
-//    public String toCSVLine(String[] strArray) {  
-//        if (strArray == null) {  
-//            return "";  
-//        }  
-//        StringBuffer cvsLine = new StringBuffer();  
-//        for (int idx = 0; idx < strArray.length; idx++) {  
-//            String item = addQuote(strArray[idx]);  
-//            cvsLine.append(item);  
-//            if (strArray.length - 1 != idx) {  
-//                cvsLine.append(',');  
-//            }  
-//        }  
-//        return cvsLine.toString();  
-//    }  
-  
-//    /** 
-//     * translate string List into CSV line
-//     */  
-//    public String toCSVLine(ArrayList<String> strArrList) {  
-//        if (strArrList == null) {  
-//            return "";  
-//        }  
-//        String[] strArray = new String[strArrList.size()];  
-//        for (int idx = 0; idx < strArrList.size(); idx++) {  
-//            strArray[idx] = (String) strArrList.get(idx);  
-//        }  
-//        return toCSVLine(strArray);  
-//    }  
-  
+
     // ==========Private Methods=============================  
     /**
      * 
