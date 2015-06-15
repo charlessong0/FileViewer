@@ -72,11 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     </tbody>
     </table>
-    
-     
-    
-    <br>
-    <br><div style="color:red"><b>there is a validation conflict in row 1 column 10, which is marked in red</b></div>
+    <jsp:getProperty property="error" name="table"/> 
     
   </body>
 </html>
