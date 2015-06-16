@@ -11,8 +11,8 @@ public class CreateFixedTable {
 	private ReadFixedXML fix;
 	private FileUtilFixed fuf;
 	private FileSample fs;
-	private String header = null;
-	private String tailer = null;
+	private ArrayList<String> header = null;
+	private ArrayList<String> tailer = null;
 	
 	public CreateFixedTable(String pathXML, String pathFile) throws Exception {
 		fix = new ReadFixedXML(pathXML);
@@ -26,25 +26,18 @@ public class CreateFixedTable {
 		fuf = new FileUtilFixed(pathFile, fs);
 	}
 	
-	//set xml template and get file sample by fileType and fileName
-	public void setXML(String path, String fileType, String fileName) {
-		fix = new ReadFixedXML(path);
-		fs = fix.getFileList().get(0);
-	}
-	
-	public void setFile(String path) throws Exception {
-		fuf = new FileUtilFixed(path);
-	}
-	
-	public void setFileSample(String fileType, String fileName) {
-		
-	}
-	
+	/**
+	 * create the fixed table for certain page and certain number of contents
+	 * @param pageNumber
+	 * @param showNumber
+	 * @return
+	 * @throws Exception
+	 */
 	public String createTable(int pageNumber, int showNumber) throws Exception {
 		StringBuilder sbTable = new StringBuilder();
 		sbTable.append("<thead><tr><th>Index</th>");
-		ArrayList title = fs.getTable().getTitleList().get(1);
-		Iterator itTitle = title.iterator();
+		ArrayList<String> title = fs.getTable().getTitleList().get(1);
+		Iterator<String> itTitle = title.iterator();
 		while(itTitle.hasNext()) {
 			sbTable.append("<th>");
 			sbTable.append(itTitle.next());
@@ -54,8 +47,8 @@ public class CreateFixedTable {
 		
 		ArrayList<ArrayList<String>> content = fuf.getPage(showNumber, pageNumber);
 		int length = content.size();
-		header = content.get(0).toString();
-		tailer = content.get(length - 1).toString();
+		header = content.get(0);
+		tailer = content.get(length - 1);
 		for (int i = 1; i < length - 1; i++) {
 			sbTable.append("<tr>");
 			sbTable.append("<td>");
@@ -72,5 +65,74 @@ public class CreateFixedTable {
 		}
 		
 		return sbTable.toString();
+	}
+	
+	public String createHeaderTable() throws Exception {
+		StringBuilder sbTable = new StringBuilder();
+		sbTable.append("<thead><tr>");
+		ArrayList<String> title = fs.getTable().getTitleList().get(0);
+		Iterator<String> itTitle = title.iterator();
+		while(itTitle.hasNext()) {
+			sbTable.append("<th>");
+			sbTable.append(itTitle.next());
+			sbTable.append("</th>");
+		}
+		sbTable.append("</tr></thead><tbody>");
+		
+		Iterator<String> itHeader = header.iterator();
+		while(itHeader.hasNext()) {
+			sbTable.append("<th>");
+			sbTable.append(itHeader.next());
+			sbTable.append("</th>");
+		}
+		return sbTable.toString();
+	}
+	
+	public String createTailerTable() throws Exception {
+		StringBuilder sbTable = new StringBuilder();
+		sbTable.append("<thead><tr>");
+		ArrayList<String> title = fs.getTable().getTitleList().get(2);
+		Iterator<String> itTitle = title.iterator();
+		while(itTitle.hasNext()) {
+			sbTable.append("<th>");
+			sbTable.append(itTitle.next());
+			sbTable.append("</th>");
+		}
+		sbTable.append("</tr></thead><tbody>");
+		
+		Iterator<String> itTailer = tailer.iterator();
+		while(itTailer.hasNext()) {
+			sbTable.append("<th>");
+			sbTable.append(itTailer.next());
+			sbTable.append("</th>");
+		}
+		return sbTable.toString();
+	}
+	
+	
+	/*
+	 * getters and setters
+	 */
+	
+	public String getHeader() {
+		return this.header.toString();
+	}
+	
+	public String getTailer() {
+		return this.tailer.toString();
+	}
+	
+	//set xml template and get file sample by fileType and fileName
+	public void setXML(String path, String fileType, String fileName) {
+		fix = new ReadFixedXML(path);
+		fs = fix.getFileList().get(0);
+	}
+	
+	public void setFile(String path) throws Exception {
+		fuf = new FileUtilFixed(path);
+	}
+	
+	public void setFileSample(String fileType, String fileName) {
+		
 	}
 }
