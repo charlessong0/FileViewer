@@ -81,9 +81,9 @@ public class CreateFixedTable {
 		
 		Iterator<String> itHeader = header.iterator();
 		while(itHeader.hasNext()) {
-			sbTable.append("<th>");
+			sbTable.append("<td>");
 			sbTable.append(itHeader.next());
-			sbTable.append("</th>");
+			sbTable.append("</td>");
 		}
 		return sbTable.toString();
 	}
@@ -102,9 +102,9 @@ public class CreateFixedTable {
 		
 		Iterator<String> itTailer = tailer.iterator();
 		while(itTailer.hasNext()) {
-			sbTable.append("<th>");
+			sbTable.append("<td>");
 			sbTable.append(itTailer.next());
-			sbTable.append("</th>");
+			sbTable.append("</td>");
 		}
 		return sbTable.toString();
 	}
