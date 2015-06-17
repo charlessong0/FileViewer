@@ -34,45 +34,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    $('#bootstrap-table').bdt();
 	});
 	
-	$(document).ready( function() {
-  	$('#example').dataTable( {
-    "aoColumnDefs": [
-      { "bSortable": true, "aTargets": [ 0 ] }
-    	] } );
-	} );
-	 
- 
-	// Using aoColumns
-	$(document).ready( function() {
-	  $('#example').dataTable( {
-	    "aoColumns": [
-	      { "bSortable": true },
-	      null,
-	      null,
-	      null,
-	      null
-	    ] } );
-	} );
 	</script>
 	
   </head>
   
-  <body>
+<body>
 
-    <jsp:useBean id="user" class="test.Test" scope="page"></jsp:useBean> 
-    <jsp:getProperty property="user" name="user"/> 
 
-    <b>PP_TRR</b><br><b>2015-06-03</b>
+ <script>
+	function accountSubmit(){ 
+  var submitType = $("input[name='file-type']").val();
+  if(submitType=='c'){
+    $('#file-type').attr('action','http://localhost:8080/FileViewer/csvTable.jsp');
+  }else if(submitType=='f'){
+    $('#file-type').attr('action','http://localhost:8080/FileViewer/fixedTable.jsp');
+  }
+  $('#file-type').submit();
+}
+	</script>
+
+<form action="" method="post" id="file-type">
+	Choose File<br> 
+	<select>  
+  <option value ="1">US-eBay-EOM-Fees@ebay.com.TRR-20140702.01.008.csv</option>  
+  <option value ="2">KXCV00P.GB.GLOBAL.BIN.RANGE.G3586V00.txt</option>  
+</select> <br>
+<br>
+	File Type<br>
+	<select>  
+  <option value ="1">PP_TRR</option>  
+  <option value="2">GLOBAL.BIN.RANGE</option>  
+</select> <br>
+<br>
+	File Template<br>
+	<input type="radio" name="file-type" value="c" onclick="if (this.checked){window.location='http://localhost:8080/FileViewer/csvTable.jsp'}"> CSV File<br>
+	<input type = "radio" name="file-type" value="f" onclick="if (this.checked){window.location='http://localhost:8080/FileViewer/fixedTable.jsp'}"> Fixed File<br>
+	<br>
+	<input type="submit" value="Submit" onclick="$('#account').submit();"></input> <input type="reset" value="Reset" />
+</form>
+
+
+	
     
-    
-    <table id="bootstrap-table" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
-    
-    <jsp:useBean id="table" class="test.TestTable" scope="page"></jsp:useBean> 
-    <jsp:getProperty property="table" name="table"/> 
-    
-    </tbody>
-    </table>
-    <jsp:getProperty property="error" name="table"/> 
-    
-  </body>
+</body>
 </html>
