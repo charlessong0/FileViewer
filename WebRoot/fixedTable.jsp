@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <b>2015-06-17</b>
     
     
-    <table id="bootstrap-table" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
+    <br><table id="bootstrap-table" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
     
     <jsp:useBean id="table" class="servlets.TableServlet" scope="page"></jsp:useBean> 
     <jsp:getProperty property="table" name="table"/> 
@@ -54,11 +54,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <%-- 
    <jsp:getProperty property="error" name="table"/> 
    --%> 
-   <table id="bootstrap-table" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
-    <jsp:getProperty property="header" name="table"/> 
+  
+    
+    <table id="bootstrap-table" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
+     <jsp:getProperty property="header" name="table" /> 
      </tbody>
     </table>
-    
     
     <table id="bootstrap-table" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
     <jsp:getProperty property="tailer" name="table"/> 
