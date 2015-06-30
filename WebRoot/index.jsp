@@ -41,36 +41,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 
 
- <script>
-	function accountSubmit(){ 
-  var submitType = $("input[name='file-type']").val();
-  if(submitType=='c'){
-    $('#file-type').attr('action','http://localhost:8080/FileViewer/csvTable.jsp');
-  }else if(submitType=='f'){
-    $('#file-type').attr('action','http://localhost:8080/FileViewer/fixedTable.jsp');
-  }
-  $('#file-type').submit();
-}
-	</script>
-
-<form action="" method="post" id="file-type">
+<form action="login.do" id = "login" method="get">
 	Choose File<br> 
-	<select>  
-  <option value ="1">US-eBay-EOM-Fees@ebay.com.TRR-20140702.01.008.csv</option>  
-  <option value ="2">KXCV00P.GB.GLOBAL.BIN.RANGE.G3586V00.txt</option>  
+	<select name="fileName">
+  <option value ="0">US-eBay-EOM-Fees@ebay.com.TRR-20140702.01.008.csv</option>  
+  <option value ="1">KXCV00P.GB.GLOBAL.BIN.RANGE.G3586V00.txt</option>  
 </select> <br>
 <br>
 	File Type<br>
-	<select>  
-  <option value ="1">PP_TRR</option>  
-  <option value="2">GLOBAL.BIN.RANGE</option>  
+	<select name="fileType">  
+  <option value ="0">PP_TRR</option>  
+  <option value="1">GLOBAL.BIN.RANGE</option>  
 </select> <br>
 <br>
-	File Template<br>
+
+<%-- File Template<br>
 	<input type="radio" name="file-type" value="c" onclick="if (this.checked){window.location='http://localhost:8080/FileViewer/csvTable.jsp'}"> CSV File<br>
 	<input type = "radio" name="file-type" value="f" onclick="if (this.checked){window.location='http://localhost:8080/FileViewer/fixedTable.jsp'}"> Fixed File<br>
-	<br>
-	<input type="submit" value="Submit" onclick="$('#account').submit();"></input> <input type="reset" value="Reset" />
+	<br>--%>
+	
+	
+	<input type = "submit" value = "login"> <input type="reset" value="Reset" />
 </form>
 
 

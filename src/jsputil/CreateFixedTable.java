@@ -155,6 +155,10 @@ public class CreateFixedTable {
 		return this.tailer.toString();
 	}
 	
+	public FileSample getFileSample() {
+		return fs;
+	}
+	
 	//set xml template and get file sample by fileType and fileName
 	public void setXML(String path, String fileType, String fileName) {
 		fix = new ReadFixedXML(path);
