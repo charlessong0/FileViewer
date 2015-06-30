@@ -149,6 +149,12 @@ public class ReadCSVXML {
 				else if ("uploadtime".equals(tableInfo.getNodeName())) {
 					table.setUpdateTime(tableInfo.getTextContent());
 				}
+				else if ("totallength".equals(tableInfo.getNodeName())) {
+					if ("".equals(tableInfo.getTextContent())) 
+						table.setTotalLength(0);
+					else 
+						table.setTotalLength(Integer.parseInt(tableInfo.getTextContent()));
+				}
 				//title - set column names in the table
 				else if ("title".equals(tableInfo.getNodeName())) {
 					NodeList titleList = tableInfo.getChildNodes();
@@ -171,7 +177,6 @@ public class ReadCSVXML {
 			}
 			readFile.setTable(table);;
 			
-			
 			//set file validation - done
 			Validation validation = new Validation();
 			Node fileValidation = innerFile.item(setNum(4));
@@ -182,7 +187,7 @@ public class ReadCSVXML {
 				Node fileColumn = validationColumn.item(setNum(j));
 				ColumnVal column = new ColumnVal();
 				
-				System.out.println(fileColumn.getNodeName());
+				//System.out.println(fileColumn.getNodeName());
 				
 				if ("true".equals(fileColumn.getAttributes().getNamedItem("required").getTextContent()))
 					column.setRequired(true);
@@ -209,6 +214,15 @@ public class ReadCSVXML {
 	
 	public ArrayList<FileSample> getFileList() {
 		return fileList;
+	}
+	
+	public ArrayList<String> getFileType() {
+		ArrayList<String> typeList = new ArrayList<String>();
+		for (int i = 0; i < fileList.size(); i++) {
+			typeList.add(fileList.get(i).getFileType());
+		}
+		
+		return typeList;
 	}
 	 
 // those are private methods
