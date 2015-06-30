@@ -67,6 +67,39 @@ public class CreateFixedTable {
 		return sbTable.toString();
 	}
 	
+	public String createTable(ArrayList<ArrayList<String>> content) throws Exception {
+		StringBuilder sbTable = new StringBuilder();
+		sbTable.append("<thead><tr><th>Index</th>");
+		ArrayList<String> title = fs.getTable().getTitleList().get(1);
+		Iterator<String> itTitle = title.iterator();
+		while(itTitle.hasNext()) {
+			sbTable.append("<th>");
+			sbTable.append(itTitle.next());
+			sbTable.append("</th>");
+		}
+		sbTable.append("</tr></thead><tbody>");
+		
+		int length = content.size();
+		header = content.get(0);
+		tailer = content.get(length - 1);
+		for (int i = 1; i < length - 1; i++) {
+			sbTable.append("<tr>");
+			sbTable.append("<td>");
+			sbTable.append(i);
+			sbTable.append("</td>");
+			ArrayList<String> row = content.get(i);
+			Iterator<String> itRow = row.iterator();
+			while (itRow.hasNext()) {
+				sbTable.append("<td>");
+				sbTable.append(itRow.next());
+				sbTable.append("</td>");
+			}
+			sbTable.append("</tr>");
+		}
+		
+		return sbTable.toString();
+	}
+	
 	public String createHeaderTable() throws Exception {
 		StringBuilder sbTable = new StringBuilder();
 		sbTable.append("<thead><tr>");
