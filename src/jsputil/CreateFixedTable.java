@@ -142,7 +142,6 @@ public class CreateFixedTable {
 		return sbTable.toString();
 	}
 	
-	
 	/*
 	 * getters and setters
 	 */
