@@ -132,7 +132,7 @@ public class CreateFixedTable {
 			sbTable.append("</th>");
 		}
 		sbTable.append("</tr></thead><tbody>");
-		
+		 
 		Iterator<String> itTailer = tailer.iterator();
 		while(itTailer.hasNext()) {
 			sbTable.append("<td>");
