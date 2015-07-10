@@ -39,7 +39,14 @@ public class FileReaderFixed {
         fis = new FileInputStream(filename);  
         isw = new InputStreamReader(fis, ENCODE);  
         br = new BufferedReader(isw);
-    }   
+    }  
+    
+    public FileReaderFixed(FileInputStream fileInput, FileSample fs) throws Exception { 
+    	setFileSample(fs);
+        //fis = new FileInputStream(filename);  
+        isw = new InputStreamReader(fileInput, ENCODE);  
+        br = new BufferedReader(isw);
+    } 
 	    
     //we should set the fileSample first before reading the file for the fixed file. 
     //While for the CSV file, we do not have to read the sample first.

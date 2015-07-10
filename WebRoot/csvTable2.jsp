@@ -39,54 +39,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-	<div id="cover">
-	 <div id="table-body" style="width: auto;height: auto; position: absolute;left:10px;top:100px">
-    <b>GLOBAL.BIN.RANGE</b><br>
-    <b>2015-07-10</b>
+
+    <div id="table-body">
+    <div id=""header">
+    <b>PP_Receipt</b><br><b>2015-07-10</b>
+    </div>
+    
+    <div id="content">
     <table id="bootstrap-table" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
     
-    <jsp:useBean id="table" class="servlets.TableServlet" scope="page"></jsp:useBean> 
+    <jsp:useBean id="table" class="test.TestTable2" scope="page"></jsp:useBean> 
     <jsp:getProperty property="table" name="table"/> 
     
     </tbody>
     </table>
     </div>
-	
-   <%-- 
-   <jsp:getProperty property="error" name="table"/> 
-   --%> 
-  
-    <div id="table-header" style="width: auto;height: auto; position: absolute;left:10px;top:10px">
-    <table id="bootstrap-table" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
-     <jsp:getProperty property="header" name="table" /> 
-     </tbody>
-    </table>
-    </div>
     
-    <div id="table-tailer" style="width: auto;height: auto; position: absolute;left:10px;top:1800px">
-    <table id="bootstrap-table" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
-    <jsp:getProperty property="tailer" name="table"/> 
-     </tbody>
-    </table>
-    </div>
+    <div id="tailer"></div>
     
-    
-    <div id="seach-space" style="width: auto;height: auto; position: absolute;left:10px;top:1900px">
+    <div id="search-space">
     <form action="search.do" id = "search" method="get">
-
-	<select name="search">
-  <jsp:getProperty property="searchTitle" name="table"/> 
-</select>
     <input type="text" name="token">
-	<input type = "submit" value = "search"> 
+	<input type = "submit" value = "Global Search"> 
 </form>
     </div>
     
-	</div>
-	
-	
-    
-    
-    
+    </div>
   </body>
 </html>

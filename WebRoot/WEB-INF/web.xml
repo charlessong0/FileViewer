@@ -41,4 +41,22 @@
     <servlet-name>SearchServlet</servlet-name>  
     <url-pattern>/search.do</url-pattern>
   </servlet-mapping>  
+  
+  <servlet>  
+    <servlet-name>UploadServlet</servlet-name>  
+    <servlet-class>servlets.UploadServlet</servlet-class>  
+  </servlet>  
+  <servlet-mapping>  
+    <servlet-name>UploadServlet</servlet-name>  
+    <url-pattern>/upload.do</url-pattern>
+  </servlet-mapping>  
+  
+  <servlet>  
+    <servlet-name>TableServlet</servlet-name>  
+    <servlet-class>servlets.TableServlet</servlet-class>  
+  </servlet>  
+  <servlet-mapping>  
+    <servlet-name>TableServlet</servlet-name>  
+    <url-pattern>/table.do</url-pattern>
+  </servlet-mapping>
 </web-app>  

@@ -1,5 +1,6 @@
 package jsputil;
 
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -18,6 +19,12 @@ public class CreateFixedTable {
 		fix = new ReadFixedXML(pathXML);
 		fs = fix.getFileList().get(0);
 		fuf = new FileUtilFixed(pathFile, fs);
+	}
+	
+	public CreateFixedTable(String pathXML, FileInputStream fileInput) throws Exception {
+		fix = new ReadFixedXML(pathXML);
+		fs = fix.getFileList().get(0);
+		fuf = new FileUtilFixed(fileInput, fs);
 	}
 	
 	public CreateFixedTable(String pathXML, String pathFile, String fileType, String fileName) throws Exception {

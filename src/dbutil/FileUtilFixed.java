@@ -1,5 +1,6 @@
 package dbutil;
 
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -11,6 +12,7 @@ public class FileUtilFixed {
 	private FileReaderFixed fr;
 	private String path = null;
 	private FileSample fs = null;
+	private FileInputStream fis = null;
 	public Error err;
 	
 	public FileUtilFixed(String path) throws Exception {
@@ -23,6 +25,13 @@ public class FileUtilFixed {
 		this.path = path;
 		this.fs = fs;
 		fr = new FileReaderFixed(this.path, this.fs);
+		
+	}
+	
+	public FileUtilFixed(FileInputStream fileInput, FileSample fs) throws Exception {
+		this.fis = fileInput;
+		this.fs = fs;
+		fr = new FileReaderFixed(this.fis, this.fs);
 		
 	}
 	

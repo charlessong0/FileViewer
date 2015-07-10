@@ -15,7 +15,7 @@ public class LoginServlet extends HttpServlet{
     {  
         RequestDispatcher dispatcher;  
         fileName = request.getParameter("fileName");  
-        fileType = request.getParameter("fileType");  
+        fileType = request.getParameter("fileType");
         
         if(fileName.equals(fileType))  
         {
@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet{
                 } catch (IOException e) {  
                     // TODO Auto-generated catch block  
                     e.printStackTrace();  
-                }  
+                }
         	}
         	else if(fileName.equals("1")) {
         		dispatcher = request.getRequestDispatcher("/fixedTable.jsp");  

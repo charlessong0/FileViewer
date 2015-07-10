@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'error.jsp' starting page</title>
+    <title>search error</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,8 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    Parsing Failed! The file template was not found!<br>
-    Please check the file type  and file name. If there is no mistake in them, you may have to varify the xml template.<br>
-    Please find the error message below:
+    There is no such a token in the file! Please try again.
   </body>
 </html>

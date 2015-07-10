@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'error.jsp' starting page</title>
+    <title>My JSP 'filepath.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,8 +23,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    Parsing Failed! The file template was not found!<br>
-    Please check the file type  and file name. If there is no mistake in them, you may have to varify the xml template.<br>
-    Please find the error message below:
+    <%String finalPath=(String)request.getAttribute("finalPath");%>
+
+<jsp:forward page="table.do">
+<jsp:param name="finalPath" value="<%=finalPath%>"/>
+</jsp:forward>
+
   </body>
 </html>
