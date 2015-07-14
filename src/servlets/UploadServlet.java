@@ -136,24 +136,14 @@ public class UploadServlet extends HttpServlet {
 			}
 
 		} catch (FileUploadException e) {
-
 			e.printStackTrace();
-			
 			throw new Exception(e);
-		
 		} catch (IOException e) {
-			
 			e.printStackTrace();
-			
 			throw new Exception(e);
-		
 		} catch (Exception e) {
-			
 			e.printStackTrace();
-			
 			throw new Exception(e);
 		} 
-
 	}
-
 }
