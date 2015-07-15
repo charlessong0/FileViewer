@@ -58,11 +58,8 @@ public class UploadServlet extends HttpServlet {
 			HttpServletResponse response) {
 		
 		try{
-
 			// MyForm myForm = new MyForm(); // Prepare bean.
-
 			// process(request, myForm); // Process request.
-
 			process(request); 
 //			if (fis == null)
 //				System.out.println("3:it is null!");
@@ -72,12 +69,8 @@ public class UploadServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		
 		}catch(Exception e){
-			
 			e.printStackTrace();
-			
 		}
-		
-
 	}
 
 	// private void process(HttpServletRequest request, MyForm myForm) {
