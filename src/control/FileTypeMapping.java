@@ -21,6 +21,11 @@ public class FileTypeMapping {
 		this.fixedTemplate = fixedTemplate;
 	}
 	
+	public void setTemplate(String csvTemplate, String fixedTemplate) {
+		this.csvTemplate = csvTemplate;
+		this.fixedTemplate = fixedTemplate;
+	}
+	
 	public FileSample getFileSample(String fileType) {
 		FileSample fs = null;
 		ReadFixedXML fix = new ReadFixedXML(fixedTemplate);
@@ -39,6 +44,18 @@ public class FileTypeMapping {
 				err.err(50);
 		}
 		return fs;
+	}
+	
+	public String washFileName(String fileName) {
+		String result = "";
+		
+		return result;
+	}
+	
+	public String getUploadDate(String fileName) {
+		String result = "";
+		
+		return result;
 	}
 	
 	
