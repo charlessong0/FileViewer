@@ -53,9 +53,7 @@ public class FileTypeMapping {
 	}
 	
 	public String getUploadDate(String fileName) {
-		String result = "";
-		
-		return result;
+		return fileName.substring(0, 5);
 	}
 	
 	

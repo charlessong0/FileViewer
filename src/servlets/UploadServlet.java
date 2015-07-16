@@ -113,7 +113,8 @@ public class UploadServlet extends HttpServlet {
 					File file = new File(realPath+"/uploadFolder");
 					file.mkdir();
 					
-					String prefix = FilenameUtils.getBaseName(fileName) + "_";
+					String prefix = FilenameUtils.getBaseName(fileName) + "_"; 
+					//String prefix = time + "_" + FilenameUtils.getBaseName(fileName);
 					System.out.println("prefix -> "+prefix);
 		            
 					String suffix = "." + FilenameUtils.getExtension(fileName);
