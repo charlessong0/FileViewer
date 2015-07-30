@@ -98,21 +98,21 @@ public class FileReaderFixed {
     	int count = 0;
     	
     	if (isHeader) {
-    		while (finish < length) {
+    		while (finish < length - 4) {
     			finish = headerEnd.get(count);
     			array.add(nextToken(source, headerStart.get(count), finish));
     			count++;
     		}
     	}
     	else if (isTailer) {
-    		while (finish < length) {
+    		while (finish < length - 4) {
     			finish = tailerEnd.get(count);
     			array.add(nextToken(source, tailerStart.get(count), finish));
     			count++;
     		}
     	}
     	else {
-    		while (finish < length) {
+    		while (finish < length - 4) {
     			finish = contentEnd.get(count);
     			array.add(nextToken(source, contentStart.get(count), finish));
     			count++;

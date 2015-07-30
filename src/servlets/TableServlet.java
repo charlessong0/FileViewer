@@ -41,6 +41,10 @@ public class TableServlet extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("/csvTable2.jsp"); 
 			dispatcher.forward(request, response);
 		}
+		else if (finalPath.equals("C:\\Users\\znsong\\Workspaces\\MyEclipse Professional 2014\\.metadata\\.me_tcat7\\webapps\\FileViewer\\uploadFolder\\FID1556739.KASYEB72.12272014-Copy_.020110")) {
+			dispatcher = request.getRequestDispatcher("/fixedTable2.jsp"); 
+			dispatcher.forward(request, response);
+		}
 		
 		else {
 			dispatcher = request.getRequestDispatcher("/error.jsp");  
@@ -69,6 +73,32 @@ public class TableServlet extends HttpServlet {
 		
 	}
 	
+	public String getTable2() throws Exception {
+		cft = new CreateFixedTable("C:\\Users\\znsong\\Documents\\My Received Files\\structureFixed_Temp-Copy.xml", "C:\\Users\\znsong\\Documents\\My Received Files\\FID1556739.KASYEB72.12272014-Copy.020110");
+		fs = cft.getFileSample();
+		return cft.createTable(1, 100);
+	}
+	
+	public String getTable3() throws Exception {
+		cft = new CreateFixedTable("C:\\Users\\znsong\\Documents\\My Received Files\\structureFixed_Temp-Copy-Copy.xml", "C:\\Users\\znsong\\Documents\\My Received Files\\FID1556739.KASYEB72.12272014-Copy.020110");
+		fs = cft.getFileSample();
+		return cft.createTable(2, 100);
+	}
+	
+	public String getHeader2() throws Exception {
+		
+		return cft.createHeaderTable();
+	}
+	
+	public String getTailer2() throws Exception {
+		return cft.createTailerTable();
+	}
+	
+	public String getSearchTitle() {
+		Table table = fs.getTable();
+		return ru.createTitleSelection(table);
+	}
+	
 	public String getTable() throws Exception {
 		cft = new CreateFixedTable("C:\\Users\\znsong\\Documents\\My Received Files\\structureFixed.xml", "C:\\Users\\znsong\\Documents\\My Received Files\\KXCV00P.GB.GLOBAL.BIN.RANGE.G3586V00.txt");
 		fs = cft.getFileSample();
@@ -82,11 +112,6 @@ public class TableServlet extends HttpServlet {
 	
 	public String getTailer() throws Exception {
 		return cft.createTailerTable();
-	}
-	
-	public String getSearchTitle() {
-		Table table = fs.getTable();
-		return ru.createTitleSelection(table);
 	}
 
 }

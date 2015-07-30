@@ -35,35 +35,64 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	});
 	
 	</script>
+	 <script>
+	$(document).ready( function () {
+	    $('#bootstrap-table2').bdt();
+	});
+	
+	</script>
 	
   </head>
   
   <body>
-
-    <div id="table-body">
-    <div id=""header">
-    <b>PP_Receipt</b><br><b>2015-07-28</b>
-    </div>
-    
-    <div id="content">
+	<div id="cover">
+	 <div id="table-body" style="width: auto;height: auto; position: absolute;left:10px;top:100px">
+    <b>Cash Management</b><br>
+    <b>2015-07-28</b>
+    <br>
+    <br>
+    <b>Adjustment Record:</b>
     <table id="bootstrap-table" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
     
-    <jsp:useBean id="table" class="test.TestTable2" scope="page"></jsp:useBean> 
-    <jsp:getProperty property="table" name="table"/> 
+    <jsp:useBean id="table" class="servlets.TableServlet" scope="page"></jsp:useBean> 
+    <jsp:getProperty property="table2" name="table"/> 
+    
+    </tbody>
+    </table>
+    </div>
+	
+   <%-- 
+   <jsp:getProperty property="error" name="table"/> 
+   --%> 
+  
+  
+    <div id="table-header" style="width: auto;height: auto; position: absolute;left:10px;top:10px">
+    <table id="bootstrap-table" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
+     <jsp:getProperty property="header2" name="table" /> 
+     </tbody>
+    </table>
+    </div>
+    
+    <div id="table-tailer" style="width: auto;height: auto; position: absolute;left:10px;top:1900px">
+    <table id="bootstrap-table" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
+    <jsp:getProperty property="tailer2" name="table"/> 
+     </tbody>
+    </table>
+    </div>
+    
+    <div id="table-body2" style="width: auto;height: auto; position: absolute;left:10px;top:800px">
+   
+    <b>CheckBack Record:</b>
+    <table id="bootstrap-table2" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
+    
+    <jsp:useBean id="tables" class="servlets.TableServlet" scope="page"></jsp:useBean> 
+    <jsp:getProperty property="table3" name="tables"/> 
     
     </tbody>
     </table>
     </div>
     
-    <div id="tailer"></div>
+	</div>
     
-    <div id="search-space">
-    <form action="search.do" id = "search" method="get">
-    <input type="text" name="token">
-	<input type = "submit" value = "Global Search"> 
-</form>
-    </div>
-    
-    </div>
   </body>
 </html>

@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="cover">
 	 <div id="table-body" style="width: auto;height: auto; position: absolute;left:10px;top:100px">
     <b>GLOBAL.BIN.RANGE</b><br>
-    <b>2015-07-10</b>
+    <b>2015-07-30</b>
     <table id="bootstrap-table" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
     
     <jsp:useBean id="table" class="servlets.TableServlet" scope="page"></jsp:useBean> 
@@ -83,10 +83,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
 	</div>
-	
-	
-    
-    
     
   </body>
 </html>

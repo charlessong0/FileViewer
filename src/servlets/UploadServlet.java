@@ -74,17 +74,13 @@ public class UploadServlet extends HttpServlet {
 	}
 
 	// private void process(HttpServletRequest request, MyForm myForm) {
-	
 
 	private void process(HttpServletRequest request) throws Exception {
-
 		try {
-
 			List<FileItem> items = new ServletFileUpload(
 					new DiskFileItemFactory()).parseRequest(request);
 
 			for (FileItem item : items) {
-
 				if (item.isFormField()) {
 					System.out.println("there is a form field.");
 				}else{ // Process the form file field (input type="file")
@@ -128,7 +124,6 @@ public class UploadServlet extends HttpServlet {
 					item.write(tempFile); // File uploaded to "uploadFolder" in Web Server(Not database)
 				}
 			}
-
 		} catch (FileUploadException e) {
 			e.printStackTrace();
 			throw new Exception(e);
