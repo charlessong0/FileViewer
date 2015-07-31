@@ -23,10 +23,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <%String finalPath=(String)request.getAttribute("finalPath");%>
+    <%
+    String finalPath=(String)request.getAttribute("finalPath");
+    String date=(String)request.getAttribute("date");
+    %>
 
 <jsp:forward page="table.do">
 <jsp:param name="finalPath" value="<%=finalPath%>"/>
+<jsp:param name="date" value="<%=date%>"/>
 </jsp:forward>
 
   </body>

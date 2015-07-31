@@ -34,6 +34,7 @@ public class UploadServlet extends HttpServlet {
 	private FileSample fs;
 	private FileInputStream fis;
 	private String finalPath;
+	private String date = "";
 	/**
 	 * Default constructor.
 	 */
@@ -65,6 +66,7 @@ public class UploadServlet extends HttpServlet {
 //				System.out.println("3:it is null!");
 //			System.out.println(fis);
 			request.setAttribute("finalPath", finalPath);
+			request.setAttribute("date", date);
 			dispatcher = request.getRequestDispatcher("/filepath.jsp"); 
 			dispatcher.forward(request, response);
 		
@@ -100,6 +102,7 @@ public class UploadServlet extends HttpServlet {
 					}
 					time +=day;
 					System.out.println(time);
+					date = time;
 					
 					InputStream in = item.getInputStream();
 					

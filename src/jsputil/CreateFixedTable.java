@@ -15,6 +15,11 @@ public class CreateFixedTable {
 	private ArrayList<String> header = null;
 	private ArrayList<String> tailer = null;
 	
+	public CreateFixedTable(FileSample fs, String pathFile) throws Exception {
+		this.fs = fs;
+		fuf = new FileUtilFixed(pathFile, this.fs);
+	}
+	
 	public CreateFixedTable(String pathXML, String pathFile) throws Exception {
 		fix = new ReadFixedXML(pathXML);
 		fs = fix.getFileList().get(0);

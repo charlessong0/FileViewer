@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+<file type="fixed" description="this is the sample file">
+	<filetype>GLOBAL.BIN.RANGE</filetype>
+	<structure show="line">
+		<fileheader>1</fileheader>
+		<batchheader>0</batchheader>
+		<title>0</title>
+		<content>1</content>
+		<batchfooter>0</batchfooter>
+		<filefooter>1</filefooter>
+	</structure>
+	<table>
+		<hastitle>1</hastitle>
+		<hastailer>1</hastailer>
+		<filename></filename>
+		<filetype></filetype>
+		<uploadtime></uploadtime>
+		<totallength show="character">250</totallength>
+		<title>
+			<header>
+				<c1 name="BIN-HDR-TYPE" start="1" length="1" end="1" type="alphabet" required="true" description="this is the sample file"></c1>
+				<c2 name="BIN-HDR-CCYY" start="2" length="4" end="5" type="number" required="true" description="this is the sample file"></c2>
+				<c3 name="FILLER" start="6" length="1" end="6" type="FILLER" required="true" description="this is the sample file"></c3>
+				<c4 name="BIN-HDR-MM" start="7" length="2" end="8" type="number" required="true" description="this is the sample file"></c4>
+				<c5 name="FILLER" start="9" length="1" end="9" type="FILLER" required="true" description="this is the sample file"></c5>
+				<c6 name="BIN-HDR-DD" start="10" length="2" end="11" type="number" required="true" description="this is the sample file"></c6>
+				<c7 name="FILLER" start="12" length="239" end="250" type="FILLER" required="true" description="this is the sample file"></c7>
+			</header>
+			<content>
+				<c1 name="BIN-DTL-TYPE" start="1" length="1" end="1" type="alphabet" required="true" description="this is the sample file"></c1>
+				<c2 name="BIN-DTL-BIN-LOW" start="2" length="16" end="17" type="number" required="true" description="this is the sample file"></c2>
+				<c3 name="BIN-DTL-BIN-LEN" start="18" length="16" end="33" type="number" required="true" description="this is the sample file"></c3>
+				<c4 name="BIN-DTL-BIN-LEN" start="34" length="2" end="35" type="number" required="true" description="this is the sample file"></c4>
+				<c5 name="BIN-DTL-PAN" start="36" length="2" end="37" type="number" required="true" description="this is the sample file"></c5>
+				<c6 name="BIN-DTL-ISS-BANK" start="38" length="60" end="97" type="String" required="true" description="this is the sample file"></c6>
+				<c7 name="BIN-DTL-COUNTRY-CODE" start="98" length="3" end="100" type="String" required="true" description="this is the sample file"></c7>
+				<c8 name="BIN-DTL-CARD-PROD" start="101" length="1" end="101" type="alphabet" required="true" description="this is the sample file"></c8>
+				<c9 name="BIN-DTL-CARD-IND" start="102" length="2" end="103" type="String" required="true" description="this is the sample file"></c9>
+				<c10 name="FILLER" start="104" length="2" end="105" type="FILLER" required="true" description="this is the sample file"></c10>
+				<c11 name="BIN-DTL-YY" start="106" length="2" end="107" type="number" required="true" description="this is the sample file"></c11>
+				<c12 name="BIN-DTL-MM" start="109" length="2" end="109" type="number" required="true" description="this is the sample file"></c12>
+				<c13 name="BIN-DTL-DD" start="110" length="2" end="111" type="number" required="true" description="this is the sample file"></c13>
+				<c14 name="BIN-DTL-DB-NW-ARRAY (Occurs 20 times)" start="112" length="60" end="171" type="String" required="true" description="this is the sample file"></c14>
+				<c15 name="BIN-DTL-EBT-STATE" start="172" length="2" end="173" type="String" required="true" description="this is the sample file"></c15>
+				<c16 name="FILLER" start="174" length="2" end="175" type="FILLER" required="true" description="this is the sample file"></c16>
+				<c17 name="BIN-DTL-FSA-IND" start="176" length="1" end="176" type="alphabet" required="true" description="this is the sample file"></c17>
+				<c18 name="BIN-DTL-ISS-BIN" start="177" length="6" end="182" type="number" required="true" description="this is the sample file"></c18>
+				<c19 name="BIN-DTL-PROCESS-BIN" start="183" length="6" end="188" type="number" required="true" description="this is the sample file"></c19>
+				<c20 name="BIN-DTL-ICA" start="189" length="6" end="194" type="number" required="true" description="this is the sample file"></c20>
+				<c21 name="BIN-DTL-PREPAID-IND" start="195" length="1" end="195" type="alphabet" required="true" description="this is the sample file"></c21>
+				<c22 name="BIN-DTL-PROD-ID" start="196" length="3" end="198" type="String" required="true" description="this is the sample file"></c22>
+				<c23 name="BIN-DTL-REGUL-ID" start="199" length="1" end="199" type="alphabet" required="true" description="this is the sample file"></c23>
+				<c24 name="BIN-PROD-SUBTYPE" start="200" length="2" end="201" type="String" required="true" description="this is the sample file"></c24>
+				<c25 name="BIN-LRG-TCKT-IND" start="202" length="1" end="202" type="alphabet" required="true" description="this is the sample file"></c25>
+				<c26 name="BIN-ACCT-LVL-PROC-IND" start="203" length="1" end="203" type="alphabet" required="true" description="this is the sample file"></c26>
+				<c27 name="BIN-ACCT-FUND-SRC" start="204" length="1" end="204" type="alphabet" required="true" description="this is the sample file"></c27>
+				<c28 name="FILLER" start="205" length="39" end="243" type="FILLER" required="true" description="this is the sample file"></c28>
+				<c29 name="RESERVED FIELD" start="244" length="7" end="250" type="RESERVED FIELD" required="true" description="this is the sample file"></c29>
+			</content>
+			<trailer>
+				<c1 name="BIN-TRL-TYPE" start="1" length="1" end="1" type="alphabet" required="true" description="this is the sample file"></c1>
+				<c2 name="BIN-TRL-TOTAL-CNT" start="2" length="10" end="11" type="number" required="true" description="this is the sample file"></c2>
+				<c3 name="FILLER" start="12" length="239" end="250" type="FILLER" required="true" description="this is the sample file"></c3>
+			</trailer>
+		</title>
+	</table>
+	<validation></validation>
+</file>
+</xml>

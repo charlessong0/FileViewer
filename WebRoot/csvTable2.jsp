@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 
     <div id="table-body">
-    <div id=""header">
+    <div id="header">
     <b>PP_Receipt</b><br><b>2015-07-28</b>
     </div>
     

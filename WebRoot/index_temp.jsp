@@ -38,48 +38,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
   </head>
   
-  <body>
+<body>
 
- <%
-	 String finalPath=(String)request.getAttribute("finalPath");
-	 String fixedPath=(String)request.getAttribute("fixedPath");
-	 String csvPath=(String)request.getAttribute("csvPath");
-	 String fileType=(String)request.getAttribute("fileType");
-	 String date=(String)request.getAttribute("date");
-	 String table=(String)request.getAttribute("table");
-	 String header=(String)request.getAttribute("header");
-	 String tailer=(String)request.getAttribute("tailer");
-	 
-	 %>
 
-    <div id="cover">
-    <div id=""header">
-   
-    </div>
+<form action="login.do" id = "login" method="get">
+	Choose File<br> 
+	<select name="fileName">
+  <option value ="0">US-eBay-EOM-Fees@ebay.com.TRR-20140702.01.008.csv</option>  
+  <option value ="1">KXCV00P.GB.GLOBAL.BIN.RANGE.G3586V00.txt</option>  
+</select> <br>
+<br>
+	File Type<br>
+	<select name="fileType">  
+  <option value ="0">PP_TRR</option>  
+  <option value="1">GLOBAL.BIN.RANGE</option>  
+</select> <br>
+<br>
+
+<%-- File Template<br>
+	<input type="radio" name="file-type" value="c" onclick="if (this.checked){window.location='http://localhost:8080/FileViewer/csvTable.jsp'}"> CSV File<br>
+	<input type = "radio" name="file-type" value="f" onclick="if (this.checked){window.location='http://localhost:8080/FileViewer/fixedTable.jsp'}"> Fixed File<br>
+	<br>--%>
+	
+	
+	<input type = "submit" value = "login"> <input type="reset" value="Reset" />
+</form>
+
+
     
-    <div id="table-body" style="width: auto;height: auto; position: relative;left:10px;float:left;clear:both">
-     <b><%=fileType %></b><br><b><%=date %></b>
-    <table id="bootstrap-table" class="table table-hover" border='1'cellspacing="0" cellpadding="0" > 
-    
-    <%=table %>
-    
-    </tbody>
-    </table>
-    </div>
-    
-    <div id="tailer"></div>
-    
-    <div id="search-space">
-    <form action="search.do" id = "search" method="get">
-    <input type="text" name="token">
-	<input type = "submit" value = "Global Search"> 
-	</form>
-    </div>
-    
-    <div id="validation">
-    
-    </div>
-    
-    </div>
-  </body>
+</body>
 </html>

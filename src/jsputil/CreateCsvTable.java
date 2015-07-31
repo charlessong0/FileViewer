@@ -1,4 +1,4 @@
-package test;
+package jsputil;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,7 +10,7 @@ import objects.Structure;
 import objects.Table;
 import objects.Validation;
 
-public class TestTable {
+public class CreateCsvTable {
 	public String tableStr = "";
 	public String error = "";
 
@@ -207,11 +207,11 @@ public class TestTable {
 				return error;
 	}
 	
-	public String getTable() throws Exception {
+	public String getTable(String csvFile, String csvTemplate) throws Exception {
 		//FileReader fr = new FileReader("C:\\Users\\znsong\\Documents\\My Received Files\\US-eBay-EOM-Fees@ebay.com.TRR-20140702.01.008.csv");
 		//FileReader fr = new FileReader("C:\\Users\\znsong\\Documents\\My Received Files\\MVX5N5KZ9CTX8_results_2014-05-15-446.csv");
-		FileReaderCSV fr = new FileReaderCSV("C:\\Users\\znsong\\Documents\\My Received Files\\US-eBay-EOM-Fees@ebay.com.TRR-20140702.01.008.csv");
-		ReadCSVXML readXML = new ReadCSVXML("C:\\Users\\znsong\\Documents\\My Received Files\\structure.xml");
+		FileReaderCSV fr = new FileReaderCSV(csvFile);
+		ReadCSVXML readXML = new ReadCSVXML(csvTemplate);
 		ArrayList<FileSample> fileList = readXML.getFileList();
 		FileSample file = fileList.get(0);
 		Validation validation = file.getValidation();

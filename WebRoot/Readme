@@ -1,0 +1,37 @@
+Authorized by Charles Song, edited 2015-07-31
+
+=========Project Description=========
+PGW file toolkit
+Read the PGW files, and show the parsing/validation/mocking results on the web screen.
+
+=========Project Ability=========
+Upload the PGW files.
+Map the file to the exact type stored in the template.
+Parse the file according to the template. Show the validation results as well.
+You can add a new file(CSV or fixed length file) in the template and the project will be able to load it!
+
+Usage:
+When you upload a PGW file, if the file has already been stored in the XML template, the server will read and show the file automatically. Otherwise, you have to add a new file type in the template.
+=========Project Structure=========
+Template:
+We use two XML files to store the template, either for CSV file or fixed length file.
+For a file template, there will be 
+<fileType>
+The type of the file. The code will use this type to map the uploaded file automatically.
+</fileType>
+<structure>
+The structure of the file. The code will understand the structure(header/content/tailer...) by parsing this.
+</structure>
+<table>
+The exact rule for reading the file and the title for each column.
+</table>
+<validation>
+Validation restrictions for different columns.
+</validation>
+
+Project:
+objects: objects for parsing the file.
+dbutil: methods for reading file/database.
+jsputil: methods for generating the code for JSP pages.
+control: methods help with the validation and search.
+servlets: servlets for the JSP pages.

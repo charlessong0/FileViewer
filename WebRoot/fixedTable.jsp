@@ -70,7 +70,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </table>
     </div>
     
-    
     <div id="seach-space" style="width: auto;height: auto; position: absolute;left:10px;top:1900px">
     <form action="search.do" id = "search" method="get">
 

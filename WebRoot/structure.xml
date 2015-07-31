@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
 <file>
-	<filetype>PP_TRR</filetype>
+	<filetype>TRR</filetype>
 	<structure>
 		<fileheader>FH</fileheader>
 		<batchheader>SH</batchheader>
@@ -41,7 +41,7 @@
 		</c9>
 		<c10 required="true" type="number">
 			<upper>99999</upper>
-			<lower>-400</lower>
+			<lower>-500</lower>
 		</c10>
 		<c11 required="true" type="number">
 			<upper>99999</upper>
@@ -50,7 +50,7 @@
 	</validate>
 </file>
 <file>
-	<filetype>PP_request</filetype>
+	<filetype>request</filetype>
 	<structure>
 		<fileheader>FH</fileheader>
 		<batchheader>BH</batchheader>
@@ -92,12 +92,11 @@
 			<c11>other</c11>
 		</title>
 	</table>
-		
 	<validate>
 	</validate>
 </file>
 <file>
-	<filetype>PP_receipt</filetype>
+	<filetype>receipt</filetype>
 	<structure>
 		<fileheader>FH</fileheader>
 		<batchheader>BH</batchheader>
@@ -139,12 +138,11 @@
 			<c11>other</c11>
 		</title>
 	</table>
-		
 	<validate>
 	</validate>
 </file>
 <file>
-	<filetype>PP_result</filetype>
+	<filetype>result</filetype>
 	<structure>
 		<fileheader>FH</fileheader>
 		<batchheader>BH</batchheader>
@@ -185,8 +183,7 @@
 			<c10>InvoiceId</c10>
 			<c11>other</c11>
 		</title>
-	</table>
-		
+	</table>	
 	<validate>
 	</validate>
 </file>
